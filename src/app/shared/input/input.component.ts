@@ -8,7 +8,7 @@ import { NgModel } from '@angular/forms'
 export class InputComponent implements OnInit, AfterContentInit {
 
   input: any
-  
+
   @Input() label: string
   @Input() errorMessage: string
 
@@ -21,7 +21,7 @@ export class InputComponent implements OnInit, AfterContentInit {
 
   ngAfterContentInit() {
     this.input = this.model
-    if(this.input === undefined){
+    if (this.input === undefined) {
       throw new Error('Esse componente precisa ser usado com uma diretiva ngModel')
     }
   }
@@ -29,6 +29,7 @@ export class InputComponent implements OnInit, AfterContentInit {
   hasSuccess(): boolean {
     return this.input.valid && (this.input.touched || this.input.dirty)
   }
+
   hasError(): boolean {
     return this.input.invalid && (this.input.touched || this.input.dirty)
   }
